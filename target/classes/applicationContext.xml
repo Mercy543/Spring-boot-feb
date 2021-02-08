@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+        "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+        
+        <!--define your beans here  -->
+        <beans>
+        <!-- Define bean for Engineer here  -->
+        
+        <bean class="com.simplilearn.training.Engineer" id="theEngineer">
+        
+        <!-- Setter dependency injection here -->
+        
+       <!--  <property name="name" value="Peter Satera"></property>
+        <property name="id" value="1234"></property> -->
+       
+       <!-- Using constructor Dependency Injection -->  
+       <constructor-arg value="Morgan"></constructor-arg>
+       <constructor-arg value="432"></constructor-arg>
+       
+       
+       <!-- Setter Dependency for Address here...... -->
+      <property name="theAddress" ref="address"></property>
+        
+        </bean>
+        
+      
+      
+     
+      <!--  Define Bean for Address-->
+      
+      <bean class="com.simplilearn.training.Address" id="address">
+      
+     <property name="location" value="Nevada"></property>
+      <property name="zipCode" value="10023"></property>
+      
+      </bean>
+      
+      
+      <bean class="com.simplilearn.training.Address" id="secondAddress">
+      
+     <property name="location" value="Califonia"></property>
+      <property name="zipCode" value="34254"></property>
+      
+      </bean>
+      
+      
+      <bean class="com.simplilearn.training.Address" id="thirdAddress">
+      
+     <property name="location" value="Delaware"></property>
+      <property name="zipCode" value="45098"></property>
+      
+      </bean>
+      
+      <!-- Define Bean for Compiter Engineer -->
+      <bean init-method="callAtFirst" destroy-method="callAtLast" class="com.simplilearn.training.ComputerEngineer" id="computerEngineer">
+      <property name="addresses">
+      <list>
+       <ref bean="address"/>
+       <ref bean="secondAddress"/>
+       <ref bean="thirdAddress"/>
+      </list>
+      </property>
+      
+      </bean>
+      
+     
+      
+      
+      
+      
+        
+        </beans>

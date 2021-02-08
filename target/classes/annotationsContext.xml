@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:context="http://www.springframework.org/schema/context"
+     xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+      http://www.springframework.org/schema/context 
+      http://www.springframework.org/schema/context/spring-context.xsd"> 
+        
+        <!-- bean definitions here -->
+    <!--     
+     Define the Bean for Annotation Engineer note we dont need setter injection
+     <bean class="com.simplilearn.training.AnnotationsEngineer" id="anEngineer">
+    
+     </bean> -->
+   
+   <!-- Bean for Address -->
+   <bean class="com.simplilearn.training.Address" id="address">
+   
+   <property name="location" value="Lagos"></property>
+   <property name="zipCode" value="12345"></property>
+   </bean>
+  
+  <bean class="com.simplilearn.training.Address" id="secondAddress">
+   
+   <property name="location" value="Abuja"></property>
+   <property name="zipCode" value="10010"></property>
+   </bean>  
+    <!-- Put this for annotations to work -->
+    <context:annotation-config></context:annotation-config>
+    
+    <!-- For spring to scan all components -->
+    <context:component-scan base-package="com.simplilearn.training"></context:component-scan>
+</beans>
